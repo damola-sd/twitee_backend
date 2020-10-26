@@ -34,4 +34,31 @@ module.exports = {
 
     }
   },
+
+  async login(req, res, next) {
+    const { email, password } = req.body;
+      try {
+          const user = await models.User.findOne(
+              { 
+                  where: { email },
+                  attributes: ['password', 'name', 'email', 'id']
+            }
+          );
+          if (
+            Object.keys(user).length &&
+            bcrypt.compareSync(password, user.dataValues.password)
+          ) {
+            const token = await jwt.generateToken(user.dataValues);
+            return response.success(res, 200, {
+              message: `${email} successfully logged in.`,
+              token
+            });
+          }
+          return response.error(res, 401, 'Invalid credentials');
+        } catch (error) {
+          return next({ message: 'Error logging in user' });
+      }
+  },
+
+
 };

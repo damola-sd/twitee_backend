@@ -47,5 +47,27 @@ module.exports = {
         } catch (error) {
           return next({ message: 'Error validating user signup' });
         }
-      }
+      },
+      async validateUserEmail(req, res, next) {
+        const { email } = req.body;
+        const validator = new Validator(req.body, {
+          email: 'required|email'
+        });
+        if (validator.fails()) {
+          return response.error(res, 400, 'Input a valid email');
+        }
+        try {
+          const user = await models.User.findOne({
+            where: { email },
+            attributes: ['email', 'name', 'id']
+          });
+          if (!user) {
+            return response.error(res, 404, 'User not found');
+          }
+          return next();
+        } catch (error) {
+          return next({ message: 'Server error try again' });
+        }
+      },
+    
 };
