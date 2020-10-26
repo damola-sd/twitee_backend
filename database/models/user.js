@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: DataTypes.STRING,
     date_created: DataTypes.DATE
-  }, {});
+  }, {
+    timestamps: false,
+  });
 
   User.associate = function(models) {
 

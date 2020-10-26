@@ -3,7 +3,9 @@ module.exports = (sequelize, DataTypes) => {
     comment: DataTypes.TEXT,
     userId: DataTypes.INTEGER,
     twitId: DataTypes.INTEGER
-  }, {});
+  }, {
+    timestamps: false,
+  });
 
   Comment.associate = function(models) {
 

@@ -9,7 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     likes: DataTypes.INTEGER
-  }, {});
+  }, {
+    timestamps: false,
+
+  });
 
   Twit.associate = function(models) {
 
