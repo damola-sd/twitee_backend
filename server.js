@@ -8,7 +8,9 @@ const keys = require('./config/secret');
 const server = express();
 server.use(express.json());
 server.use('/api', apiRouter);
-
+server.use(
+  cors()
+);
 
 server.get('/', async (_, res) => {
     res.status(200).json(`API endpoints exposed at /api`);
