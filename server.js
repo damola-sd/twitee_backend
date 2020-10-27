@@ -8,7 +8,7 @@ const cors = require('cors');
 const server = express();
 server.use(express.json());
 server.use('/api', apiRouter);
-server.use(cors());
+server.use(cors({ origin: true }));
 
 server.get('/', async (_, res) => {
     res.status(200).json(`API endpoints exposed at /api`);
