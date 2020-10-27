@@ -48,3 +48,55 @@
     "email": "jane@example.com",
     "password: "password"
   ```
+
+  **Login**
+----
+  Logsin a User and returns a token.
+
+* **URL**
+
+  api/user/login
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+  None
+
+* **Data Params**
+ **Required:**
+ 
+   `email=[string]`
+   `password=[string]`
+
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{
+  "status": 200,
+  "data": {
+    "message": "talk2mm97@gmail.com successfully logged in.",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJUYWxrMm1tOTciLCJlbWFpbCI6InRhbGsybW05N0BnbWFpbC5jb20iLCJpYXQiOjE2MDM3NTM4MjUsImV4cCI6MTYwNDk2MzQyNX0.dICFMPo-JPR-6cwYV5uDLSR9KXtUHifuo2zX9hKTPBY"
+  }
+}`
+ 
+* **Error Response:**
+
+  * **Code:** 401 Bad Request <br />
+    **Content:** `'Invalid credentials'`
+
+  OR
+
+
+
+* **Sample Call:**
+
+  ```json
+    "email": "jane@example.com",
+    "password: "password"
+  ```
+
+  
