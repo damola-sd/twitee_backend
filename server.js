@@ -9,13 +9,13 @@ const server = express();
 server.use(express.json());
 server.use('/api', apiRouter);
 server.use(
-  cors()
+  cors(
+    {
+      origin: '*',
+    }
+  )
 );
-server.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+
 
 
 server.get('/', async (_, res) => {
