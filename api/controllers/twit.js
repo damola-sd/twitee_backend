@@ -67,6 +67,24 @@ module.exports = {
         }catch (error) {
             return response.error(res, 500, error.message);
         }
+    },
+
+    async postComment(req, res) {
+        const { id } = req.decode;
+        const { twitId } = req.params;
+        try {
+            const newComment = { 
+                comment: req.body.comment,
+                twitId,
+                userId: id
+            };
+            const addComment = await models.Comment.create(newComment);
+            if (addComment) { return response.success(res, 201, addComment) };
+            return response.error(res, 401, 'Could add comment')
+        }catch (error) {
+            return response.error(res, 500, error.message);
+        }
+
     }
 
 }
