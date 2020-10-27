@@ -38,4 +38,21 @@ module.exports = {
         }
     },
 
+    async postTwit(req, res) {
+        const { id } = req.decode;
+        try {
+            const newTwit = {
+                twit: req.body.twit,
+                userId: id,
+                likes: 0
+            };
+            const createTwit = await models.Twit.create(newTwit);
+            if (createTwit) { return response.success(res, 201, createTwit) };
+            return response.error(res, 401, 'Could not create new tweet')
+        }catch (error) {
+            return response.error(res, 500, error.message);
+        }
+        
+    }
+
 }
