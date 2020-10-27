@@ -7,14 +7,11 @@ const keys = require('./config/secret');
 
 const server = express();
 server.use(express.json());
-server.use('/api', apiRouter);
 server.use(
-  cors(
-    {
-      origin: '*',
-    }
-  )
+  cors()
 );
+server.use('/api', apiRouter);
+
 
 
 
