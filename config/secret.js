@@ -8,4 +8,5 @@ module.exports = {
     jwtSecret: process.env.jwtSecret, 
     USER_MAIL: process.env.USER_MAIL,
     PASSWORD_MAIL: process.env.PASSWORD_MAIL,
+    API_CONSUME_URL: process.env.API_CONSUME_URL,
 }
