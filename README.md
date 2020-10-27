@@ -49,9 +49,11 @@
     "password: "password"
   ```
 
+ 
+ 
   **Login**
 ----
-  Logsin a User and returns a token.
+  Logs in a User and returns a token.
 
 * **URL**
 
