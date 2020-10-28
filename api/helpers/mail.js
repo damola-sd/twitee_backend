@@ -56,8 +56,11 @@ async function welcomeMail(frontend, name, email) {
 
   try {
     const welMail = await transporter.sendMail(mailOption);
+    console.log(welMail);
     return welMail;
+    
   } catch (error) {
+    console.log(error.message)
     return error.message;
   }
 }
