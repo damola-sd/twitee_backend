@@ -9,7 +9,7 @@ module.exports = {
         twitId: 1,
       },
       {
-        comment: 'LOrem',
+        comment: 'Lorem',
         userId: 2,
         twitId: 2,
       },
