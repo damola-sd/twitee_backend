@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const models = require("../../database/models");
 const jwt = require("../helpers/jwt");
 const mail = require("../helpers/mail");
+const secret = require('../../config/secret');
 
 const response = require('../helpers/response');
 
@@ -25,7 +26,7 @@ module.exports = {
               email: user.email,
           };
           const token = await jwt.generateToken(newUser);
-          const sendMail = await mail('http://localhost:5000', newUser.name, newUser.email);
+          const sendMail = await mail(secret.F, newUser.name, newUser.email);
           return res.status(201).json({ token, user: newUser });
       }
       return res.status(400).json('Could not create profile');
