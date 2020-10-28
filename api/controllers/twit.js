@@ -8,6 +8,7 @@ module.exports = {
         try {
             const twits = await models.Twit.findAll({
                 attributes: [
+                    'id',
                     'twit',
                     'likes'
                 ],
