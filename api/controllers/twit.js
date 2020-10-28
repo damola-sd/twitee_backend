@@ -63,7 +63,7 @@ module.exports = {
             const deleteTwit = await models.Twit.destroy({
                 where: { id: twitId, userId: id }
             });
-            if (deleteTwit) return response.success(res, 201, "Successfully deleted twit");
+            if (deleteTwit) return response.success(res, 202, "Successfully deleted twit");
             return response.error(res, 401, 'Could not delete tweet');
         }catch (error) {
             return response.error(res, 500, error.message);

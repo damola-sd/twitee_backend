@@ -9,4 +9,5 @@ module.exports = {
     USER_MAIL: process.env.USER_MAIL,
     PASSWORD_MAIL: process.env.PASSWORD_MAIL,
     API_CONSUME_URL: process.env.API_CONSUME_URL,
+    FRONTEND_URL: process.env.FRONTEND_URL
 }
