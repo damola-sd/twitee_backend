@@ -26,7 +26,7 @@ module.exports = {
               email: user.email,
           };
           const token = await jwt.generateToken(newUser);
-          const sendMail = await mail(secret.F, newUser.name, newUser.email);
+          const sendMail = await mail(secret.FRONTEND_URL, newUser.name, newUser.email);
           return res.status(201).json({ token, user: newUser });
       }
       return res.status(400).json('Could not create profile');
