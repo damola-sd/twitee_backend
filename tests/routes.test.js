@@ -56,7 +56,6 @@ describe('Twit Routes', () => {
         }
 
         const token = await jwt.generateToken(user);
-        console.log(token)
 
         const res = await request(app)
             .post('/api/twit/new')
