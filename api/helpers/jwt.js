@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const secret = require('../../config/secret');
-// const response = require('./response');
+const response = require('./response');
 
 module.exports = {
     async generateToken(user) {

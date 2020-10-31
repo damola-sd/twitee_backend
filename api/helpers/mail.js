@@ -7,7 +7,6 @@ const logo =
   "https://res.cloudinary.com/niyon/image/upload/v1567491149/Group_2_3_pezgbf.png";
 
 async function welcomeMail(frontend, name, email) {
-  console.log(frontend);
   const mailGenerator = new Mailgen({
     theme: "default",
     product: {
@@ -56,11 +55,9 @@ async function welcomeMail(frontend, name, email) {
 
   try {
     const welMail = await transporter.sendMail(mailOption);
-    console.log(welMail);
     return welMail;
     
   } catch (error) {
-    console.log(error.message)
     return error.message;
   }
 }
